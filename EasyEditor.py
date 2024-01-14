@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QMainWindow,QFileDialog
 from PyQt5.QtGui import QPixmap
 from ui import Ui_MainWindow
 import os
-from PIL import Image, ImageFilter
+from PIL import Image, ImageFilter, ImageOps
 class EasyEditor(QMainWindow):
     def   __init__(self):
         super().__init__()
@@ -19,8 +19,12 @@ class EasyEditor(QMainWindow):
 
     def connects(self):
         self.ui.folder_btn.clicked.connect(self.choose_folder)
-        self.ui.image_kist.currentRowChanged.connect(self.show_choosen_image)
+        self.ui.listWidget.currentRowChanged.connect(self.show_choosen_image)
         self.ui.bw_btn.clicked.connect(self.do_black)
+        self.ui.left_btn.clicked.connect(self.do_left)
+        self.ui.right_btn.clicked.connect(self.do_right)
+        self.ui.mirror_btn.clicked.connect(self.do_mirror)
+        self.ui.blur_btn.clicked.connect(self.do_blur)
 
     def filter(self, filenames):
         images = []
@@ -52,19 +56,19 @@ class EasyEditor(QMainWindow):
         self.image = Image.open(self.filename)
 
     def show_image(self):
-        self.ui.image_label.hide()
-        h = self.ui.image_label.height()
-        w = self.ui.image_label.width()
+        self.ui.label.hide()
+        h = self.ui.label.height()
+        w = self.ui.label.width()
 
         pm_image = QPixmap(self.filename)
         pm_image = pm_image.scaled(w, h, Qt.KeepAspectRatio)
-        self.ui.image_label.setPixmap(pm_image)
+        self.ui.label.setPixmap(pm_image)
 
-        self.ui.image_label.show()
+        self.ui.label.show()
     
     def show_choosen_image(self):
-        if self.ui.image_list.currentRow() >= 0:
-            filename = self.ui.image_list.currentItem().text()
+        if self.ui.listWidget.currentRow() >= 0:
+            filename = self.ui.listWidget.currentItem().text()
             self.load_image(filename)
             self.show_image()
 
@@ -76,9 +80,37 @@ class EasyEditor(QMainWindow):
         self.image.save(self.filename)
 
     def do_black(self):
-        self.image = self.image.convert('L')
-        self.save_image()
-        self.show_image()
+        if self.image:
+            self.image = self.image.convert('L')
+            self.save_image()
+            self.show_image()
+
+    def do_left(self):
+        if self.image:
+            self.image = self.image.transpose(Image.ROTATE_90)
+            self.save_image()
+            self.show_image()
+
+    def do_right(self):
+        if self.image:
+            self.image = self.image.transpose(Image.ROTATE_270)
+            self.save_image()
+            self.show_image()
+
+    def do_mirror(self):
+        if self.image:
+            self.image = ImageOps.mirror(self.image)
+            self.save_image()
+            self.show_image()
+
+    def do_blur(self):
+        if self.image:
+            self.image = self.image.filter(ImageFilter.BLUR)
+            self.save_image()
+            self.show_image()
+
+
+    
 
         
 

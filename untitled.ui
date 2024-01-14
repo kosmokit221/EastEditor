@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1057</width>
-    <height>895</height>
+    <width>913</width>
+    <height>615</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,8 +22,8 @@ font-size:20px;</string>
    <widget class="QPushButton" name="folder_btn">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>710</y>
+      <x>20</x>
+      <y>500</y>
       <width>147</width>
       <height>32</height>
      </rect>
@@ -75,9 +75,9 @@ font-size:20px;</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>120</y>
+      <y>90</y>
       <width>181</width>
-      <height>581</height>
+      <height>411</height>
      </rect>
     </property>
    </widget>
@@ -120,14 +120,17 @@ font-size:20px;</string>
      <string>Відзеркалити</string>
     </property>
    </widget>
-   <widget class="QListView" name="listView">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>265</x>
-      <y>131</y>
-      <width>701</width>
-      <height>581</height>
+      <x>230</x>
+      <y>90</y>
+      <width>651</width>
+      <height>401</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>Картинка</string>
     </property>
    </widget>
   </widget>
@@ -136,7 +139,7 @@ font-size:20px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1057</width>
+     <width>913</width>
      <height>34</height>
     </rect>
    </property>

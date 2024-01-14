@@ -14,14 +14,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1057, 895)
+        MainWindow.resize(913, 615)
         MainWindow.setStyleSheet("background:rgb(52, 62, 39);\n"
 "color:white;\n"
 "font-size:20px;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.folder_btn = QtWidgets.QPushButton(self.centralwidget)
-        self.folder_btn.setGeometry(QtCore.QRect(30, 710, 147, 32))
+        self.folder_btn.setGeometry(QtCore.QRect(20, 500, 147, 32))
         self.folder_btn.setObjectName("folder_btn")
         self.save_btn = QtWidgets.QPushButton(self.centralwidget)
         self.save_btn.setGeometry(QtCore.QRect(50, 750, 91, 32))
@@ -33,7 +33,7 @@ class Ui_MainWindow(object):
         self.left_btn.setGeometry(QtCore.QRect(220, 30, 165, 32))
         self.left_btn.setObjectName("left_btn")
         self.listWidget = QtWidgets.QListWidget(self.centralwidget)
-        self.listWidget.setGeometry(QtCore.QRect(20, 120, 181, 581))
+        self.listWidget.setGeometry(QtCore.QRect(20, 90, 181, 411))
         self.listWidget.setObjectName("listWidget")
         self.blur_btn = QtWidgets.QPushButton(self.centralwidget)
         self.blur_btn.setGeometry(QtCore.QRect(410, 30, 92, 32))
@@ -44,12 +44,12 @@ class Ui_MainWindow(object):
         self.mirror_btn = QtWidgets.QPushButton(self.centralwidget)
         self.mirror_btn.setGeometry(QtCore.QRect(650, 30, 130, 32))
         self.mirror_btn.setObjectName("mirror_btn")
-        self.listView = QtWidgets.QListView(self.centralwidget)
-        self.listView.setGeometry(QtCore.QRect(265, 131, 701, 581))
-        self.listView.setObjectName("listView")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(230, 90, 651, 401))
+        self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1057, 34))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 913, 34))
         self.menubar.setObjectName("menubar")
         self.menu = QtWidgets.QMenu(self.menubar)
         self.menu.setObjectName("menu")
@@ -73,6 +73,7 @@ class Ui_MainWindow(object):
         self.blur_btn.setText(_translate("MainWindow", "Розмиття"))
         self.bw_btn.setText(_translate("MainWindow", "Чорно-біле"))
         self.mirror_btn.setText(_translate("MainWindow", "Відзеркалити"))
+        self.label.setText(_translate("MainWindow", "Картинка"))
         self.menu.setTitle(_translate("MainWindow", "Редагувати"))
 
 
